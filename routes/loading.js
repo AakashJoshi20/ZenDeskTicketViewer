@@ -2,11 +2,12 @@ var express = require('express');
 var router = express.Router();
 
 var zendesk = require('node-zendesk');
+var config  = require('dotenv').config;
 
 var client = zendesk.createClient({
-  username:  'aakashjoshi167@gmail.com',
-  token:     'YTr9P4kwDcVW7bnC1j2QkNxiWMLNooJRUeSBDtPl',
-  remoteUri: 'https://aakashjoshi.zendesk.com/api/v2'
+  username: process.env.username,
+  token: process.env.token,
+  remoteUri:  process.env.remoteUri
 });
 
 /* GET home page. */

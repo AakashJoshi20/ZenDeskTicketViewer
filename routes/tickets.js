@@ -3,13 +3,14 @@ var router = express.Router();
 
 var zendesk = require('node-zendesk');
 
-var config = require('config');
+// var config = require('config');
+var config = require('dotenv').config()
 //...
-var zendeskconf = config.get('zendesk');
+// var zendeskconf = config.get('zendesk');
 var client = zendesk.createClient({
-  username: zendeskconf.username,
-  password: zendeskconf.password,
-  remoteUri:  zendeskconf.remoteUri
+  username: process.env.username,
+  password: process.env.password,
+  remoteUri:  process.env.remoteUri
 });
 
 /* GET home page. */
